@@ -1,0 +1,641 @@
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.19.1/URI.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js"></script>
+ 
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Últimas notícias de economia, política, carros, emprego, educação, ciência, saúde, cultura do Brasil e do mundo">
+    <meta name="generator" content="2018.1.0.386">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Site Seguro</title>
+
+    <script type="text/javascript">
+        function PegaParametros(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return "bugado";
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        var uttm_source = PegaParametros('utm_source');
+        var uttm_medium = PegaParametros('utm_medium');
+        var uttm_campaign = PegaParametros('utm_campaign');
+        var srrc = PegaParametros('src');
+
+        if (uttm_source == "") {
+        var uttm_source = "bugado";
+        }
+
+        if (uttm_medium == "") {
+        var uttm_medium = "bugado";
+        }
+
+        if (uttm_campaign == "") {
+        var uttm_campaign = "bugado";
+        }
+
+        if (srrc == "bugado") {
+        srrc = uttm_campaign;
+        }
+
+            var site = ('');
+
+            var x = (site+'?src=Pagina');
+    </script>
+
+          <!-- SCRIPT DE REDIRECIONAMENTO AQUI -->
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="shortcut icon" href="arquivos/favicon.ico">
+
+    <style>
+        .footer {
+           left: 0;
+           bottom: 0;
+           width: 100%;
+           text-align: center;
+           padding: 10px;
+        }
+    </style>
+<style type="text/css">ol{margin:0;padding:0}table td,table th{padding:0}.c3{background-color:#ffffff;color:#555555;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11.5pt;font-family:"Arial";font-style:normal}.c14{background-color:#ffffff;color:#444444;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:30pt;font-family:"Arial";font-style:normal}.c2{padding-top:0pt;padding-bottom:0pt;line-height:1.15;orphans:2;widows:2;text-align:left;height:11pt}.c10{color:#000000;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:13.5pt;font-family:"Arial";font-style:normal}.c0{color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:"Arial";font-style:normal}.c21{color:#ff0000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:16.5pt;font-family:"Arial";font-style:normal}.c16{color:#ff0000;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:21pt;font-family:"Arial";font-style:italic}.c7{color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:13pt;font-family:"Arial";font-style:normal}.c20{color:#ff0000;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:21pt;font-family:"Arial";font-style:normal}.c8{padding-top:0pt;padding-bottom:0pt;line-height:1.15;orphans:2;widows:2;text-align:left}.c19{padding-top:0pt;padding-bottom:30pt;line-height:1.3269230769230769;orphans:2;widows:2;text-align:left}.c17{padding-top:0pt;padding-bottom:15pt;line-height:1.15;orphans:2;widows:2;text-align:left}.c12{padding-top:0pt;padding-bottom:30pt;line-height:1.15;orphans:2;widows:2;text-align:left}.c15{padding-top:0pt;padding-bottom:15pt;line-height:1.3269230769230769;orphans:2;widows:2;text-align:left}.c24{padding-top:0pt;padding-bottom:23pt;line-height:1.15;orphans:2;widows:2;text-align:left}.c4{padding-top:0pt;padding-bottom:0pt;line-height:1.5;orphans:2;widows:2;text-align:left}.c22{color:#000000;font-weight:400;vertical-align:baseline;font-family:"Arial";font-style:normal}.c9{padding-top:0pt;padding-bottom:0pt;line-height:1.15;text-align:left}.c11{text-decoration-skip-ink:none;font-size:13pt;-webkit-text-decoration-skip:none;text-decoration:underline}.c23{background-color:#ffffff;font-size:30pt;color:#444444;font-weight:700}.c1{background-color:#ffffff;font-size:11.5pt;color:#555555;font-weight:700}.c13{background-color:#ffffff;max-width:451.4pt;padding:72pt 72pt 72pt 72pt}.c6{background-color:#ffffff;font-size:11.5pt;color:#555555}.c5{height:11pt}.c18{margin-right:15pt}.title{padding-top:0pt;color:#000000;font-size:26pt;padding-bottom:3pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}.subtitle{padding-top:0pt;color:#666666;font-size:15pt;padding-bottom:16pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}li{color:#000000;font-size:11pt;font-family:"Arial"}p{margin:0;color:#000000;font-size:11pt;font-family:"Arial"}h1{padding-top:20pt;color:#000000;font-size:20pt;padding-bottom:6pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h2{padding-top:18pt;color:#000000;font-size:16pt;padding-bottom:6pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h3{padding-top:16pt;color:#434343;font-size:14pt;padding-bottom:4pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h4{padding-top:14pt;color:#666666;font-size:12pt;padding-bottom:4pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h5{padding-top:12pt;color:#666666;font-size:11pt;padding-bottom:4pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h6{padding-top:12pt;color:#666666;font-size:11pt;padding-bottom:4pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;font-style:italic;orphans:2;widows:2;text-align:left}p{width:100%;}</style>
+</head>
+<body style="background-color: #EAEBEF;">
+    <div class="container">
+      <div class="row" style="background-color: #4167B2; border-radius: 10px 10px 0px 0px;">
+        <div class="col" style="padding: 10px">
+          &nbsp;&nbsp;
+          <i class="fab fa-facebook-f fa-3x" style="color: white;"></i>
+        </div>
+      </div>
+      <div class="row" style="background-color: white;">
+        <div class="col-4 col-md-5" >
+        </div>
+        <div class="col-4" style="padding: 20px;" >
+          <i class="fas fa-user-lock fa-5x" style="color: black;"></i>
+        </div>
+        <div class="col-4" >
+        </div>
+      </div>
+      <div class="row" style="background-color: white; padding: 20px">
+        <p class="c2"><span class="c0"></span></p>
+        <center style="    background-color: #ffffff;
+    color: #444444;
+    font-weight: 700;
+    text-decoration: none;
+    vertical-align: baseline;
+    font-size: 30pt;
+    width:100%;
+    text-align:center;
+    font-style: normal;">Clique no botão abaixo para saber mais!</center>
+      </div>
+	  <script type="text/javascript">
+	  document.write('<h1>'+demo+'</h1>')
+	  </scripT>
+      <div class="row" >
+        <div class="col-2" >
+        </div>
+        <div class="col-8" style="padding: 20px" >
+          <script>document.write('<a  class="btn btn-primary btn-block" style=" role="button" style="background-color: #4167B2" href="'+x+'"');</script> ><h2 style="text-align: center; font-weight: bold;color: #fff">⇒ CLIQUE AQUI </h2></a>
+          <!--<a class="btn btn-primary btn-block" href="#" role="button"><h2 style="text-align: center; font-weight: bold;">OK</h2></a>-->
+          <small>* Somente para maiores de 18 anos.</small>
+        </div>
+        <div class="col-2" >
+        </div>
+      </div>
+      <div class="row" >
+        <div class="col" >
+            <p style="text-align: center;font-size: 23px;"><i class="fas fa-circle" style="color: #00FF00;"></i> <i id="demo"></i> Pessoas estão visitando este Site.</p>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="footer">
+      <a href="#"  data-toggle="modal" data-target="#politicas">Politica de Privacidade</a> &nbsp;&nbsp;
+      <a href="#"  data-toggle="modal" data-target="#termos">Termos de Uso</a>&nbsp;&nbsp;
+    </div>
+
+			
+	  <div class="modal fade" id="politicas" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+		 <h4 class="modal-title">Políticas de Privacidade</h4><br>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+         
+        </div>
+		
+
+		
+        <div class="modal-body">
+        
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>This Website,is committed to protecting and respecting your privacy.</p>
+
+<p> </p>
+
+<p>This policy together with our terms of use and any other documents referred to here set out the core principle on which any personal data we collect from you or that you provide to us, will be processed by us.</p>
+
+<p> </p>
+
+<p>Please read the following carefully to understand our views and practices regarding your personal data and how we will treat it.</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>We keep certain basic information when you visit our website and recognize the importance of keeping that information secure and letting you know what we will do with it.</p>
+
+<p> </p>
+
+<p>This policy only applies to our website. If you leave our website via a link or otherwise, you will be subject to the policy of that website provider. We have no control over the policy or terms of other websites. It is your responsibility to check their policy before continuing to access them.</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>INFORMATION WE MAY COLLECT FROM YOU</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>We may collect and process the following information about you:</p>
+
+<p> </p>
+
+<p>Information that you provide by filling in forms on our site.</p>
+
+<p> </p>
+
+<p>Information provided at the time of registering as a user on our website subscribing to our services or requesting further assistance</p>
+
+<p> </p>
+
+<p>Information you provide when reporting an issue with our website</p>
+
+<p> </p>
+
+<p>When you contact us, record of that correspondence</p>
+
+<p> </p>
+
+<p>Completed surveys that we use for research purposes; although you do not have to respond to them.</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>IP ADDRESSES AND COOKIES</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>We may collect information about your computer, including where available, your IP address, operating system, and browser type. We also collect data for system administration and to report aggregate information to our advertisers.</p>
+
+<p> </p>
+
+<p>This is statistical data about our users' browsing actions and patterns, and does not identify any individual or collect personal information to our third party advertisers.</p>
+
+<p> </p>
+
+<p>You may refuse to accept cookies by activating the setting on your browser which allows you to refuse cookies. However, if you select this setting you may be unable to access certain parts of our website. Unless you have adjusted your browser setting so that it will refuse cookies, our system will issue cookies when you log on to our website.</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>WHERE WE STORE YOUR PERSONAL DATA</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>All information you provide to us is stored on our secure servers. Any payment transactions will be encrypted. Where we have given you (or where you have chosen) a password which enables you to access certain parts of our site, you are responsible for keeping this password confidential. We ask you not to share the password with anyone.</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>USES MADE OF THE INFORMATION</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>We use information kept about you in the following ways:</p>
+
+<p> </p>
+
+<p>To ensure that content from our website is presented in the most effective manner for you and for your computer.</p>
+
+<p> </p>
+
+<p>To provide you with information, products or services that you request from us or which we feel may interest you, where you have consented to be contacted for such purposes.</p>
+
+<p> </p>
+
+<p>To carry out our obligations arising from any contracts entered into between you and us.</p>
+
+<p> </p>
+
+<p>To allow you to participate in interactive features of our service, when you choose to do so.</p>
+
+<p> </p>
+
+<p>To notify you about changes to our service.</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>CALIFORNIA ONLINE PRIVACY PROTECTION ACT COMPLIANCE</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>Because we value your privacy we have taken the necessary precautions to be in compliance with the California Online Privacy Protection Act. We therefore will not distribute your personal information to outside parties without your consent. As part of the California Online Privacy Protection Act, all users of our site may make any changes to their information at any time by logging into their profile and going to the &ldquo;Account Info&rdquo; page.</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>CHILDREN ONLINE PRIVACY PROTECTION ACT COMPLIANCE</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>We are in compliance with the requirements of COPPA (Children's Online Privacy Protection Act). We do not collect any information from anyone under 13 years of age. Our website, products and services are all directed to people who are at least 13 years old or older.</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>YOUR RIGHTS</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>You have the right to ask us not to process your personal data for marketing purposes. We will usually inform you (before collecting your data) if we intend to use your data for such purposes or if we intend to disclose your information to any third party for such purposes. You can exercise your right to prevent such processing by checking certain boxes on the forms we use to collect your data. You can also exercise the right at any time by contacting us via email. Our website may, from time to time, contain links to and from the websites of our partner networks, advertisers, and affiliates. If you follow a link to any of these websites, please note that these websites have their own privacy policies and that we do not accept any responsibility or liability for these policies. Please check these policies before you submit any personal data to these websites.</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>CHANGES TO OUR PRIVACY POLICY</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>Any changes we may make to our privacy policy in the future will be posted on this page and, when appropriate, notified to you by e-mail. However, we advise that you check this page regularly to keep up to date with any changes.</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>YOUR CONSENT</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>By using our website, you indicate that you agree to our privacy policy and that you agree to abide by it. If you do not agree to our privacy policy, please refrain from using our website.</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>CONTACT</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>Questions, comments and requests regarding this privacy policy are welcomed and should be sent via e-mail or the address bellow</p>
+
+<p> </p>
+
+<p>contato@vicentecarvalho.site</p>
+		
+		
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+	
+	
+	  <div class="modal fade" id="termos" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+		 <h4 class="modal-title">Termos de Uso</h4><br>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+         
+        </div>
+        <div class="modal-body">
+        
+<p>Please read these terms of use carefully before you start to use the site. By using our site, you indicate that you accept these terms of use and that you agree to abide by them. If you do not agree to these terms of use, please refrain from using our site.                                                                                                                                                                                                                                               </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>RELIANCE ON INFORMATION POSTED & DISCLAIMER                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>The materials contained on our site are provided for general information purposes                                                                                                                                                                                                                                                                                                                                                                                                                               </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>only and do not claim to be or constitute legal or other professional advice and shall not be relied upon as such.                                                                                                                                                                                                                                                                                                                                                                                              </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>We do not accept any responsibility for any loss which may arise from accessing or reliance on the information on this site. And to the fullest extent permitted by the law, we exclude all liability for loss or damages direct or indirect arising from use of this site.                                                                                                                                                                                                                                     </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>ACCESSING OUR SITE                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>Access to our site is permitted on a temporary basis, and we reserve the right to withdraw or amend the service we provide on our site without notice (see below). We will not be liable if for any reason our site is unavailable at any time or for any period.                                                                                                                                                                                                                                               </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>INTELLECTUAL PROPERTY RIGHTS                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>We are the owner or the licensee of all intellectual property rights in our site, and in the material published on it. Those works are protected by copyright laws and treaties around the world. All such rights are reserved.                                                                                                                                                                                                                                                                                 </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>You may print a copy, and may download extracts, of any page(s) from our site for your personal reference and you may draw the attention of others within your organization to material posted on our site.                                                                                                                                                                                                                                                                                                     </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>You must not modify the materials you have printed or downloaded in any way, and you must not use any illustrations, photographs, video or audio sequences or any graphics separately from any accompanying text.                                                                                                                                                                                                                                                                                               </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>Our status (and that of any identified contributors) as the authors of material on our site must always be acknowledged.                                                                                                                                                                                                                                                                                                                                                                                        </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>You must not use any part of the materials on our site for commercial purposes without obtaining a license to do so from us or our licensors.                                                                                                                                                                                                                                                                                                                                                                   </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>If you print, copy or download any part of our site in breach of these terms of use, your right to use our site will cease immediately and you must, at our option, return or destroy any copies of the materials you have made.                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>If you believe your intellectual property rights have been infringed by our website content, please contact us by email or writing the address below.                                                                                                                                                                                                                                                                                                                                                           </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>OUR SITE CHANGES REGULARLY                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>We update our site regularly, and may change the content at any time. It is our right to suspend access to our site, or close it indefinitely.If any of the material on our site is out of date, we are under no obligation to update such material.                                                                                                                                                                                                                                                            </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>INFORMATION ABOUT YOU AND YOUR VISITS TO OUR SITE                                                                                                                                                                                                                                                                                                                                                                                                                                                               </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>We process information about you in accordance with our privacy policy. By using our site, you consent to such processing and you warrant that all data provided by you is accurate.                                                                                                                                                                                                                                                                                                                            </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>VIRUSES, HACKING AND OTHER OFFENCES                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>You must not knowingly introduce viruses, trojans, worms, logic bombs or other material which is malicious or technologically harmful. You must not attempt to gain unauthorized access to our site, the server on which our site is stored or any server, computer or database connected to our site. You must not attack our site via a denial-of-service attack or a distributed denial-of service attack.                                                                                                   </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>By breaching this provision, you are committing a criminal offense under the Computer Misuse Act 1990. We will report any such breach to the relevant law enforcement authorities and we will co-operate with those authorities by disclosing your identity to them. In the event of such a breach, your right to use our site will cease immediately.                                                                                                                                                          </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>We will not be liable for any loss or damage caused by a distributed denial-of-service attack, viruses or other technologically harmful material that may infect your computer equipment, computer programs, data or other proprietary material due to your use of our site or to your downloading of any material posted on it, or on any website linked to it.                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>LINKS FROM OUR SITE                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>Where our site contains links to other sites and resources provided by third parties, these links are provided for your information only. We have no control over the contents of those sites or resources, and accept no responsibility for them or for any loss or damage that may arise from you using them. When accessing a site via our website we advise you check their terms of use and privacy policies to ensure compliance and determine how they may use your information.                         </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>PRIVACY POLICY                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>Our privacy policy is part of, and subject to, these terms and conditions of use.                                                                                                                                                                                                                                                                                                                                                                                                                               </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>REVISIONS                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>We may revise these terms of use at any time by amending this page. You are expected to check this page from time to time and take notice of any changes, as they are binding on you. Some of the provisions contained in these terms of use may also be superseded by provisions or notices published elsewhere on our site.                                                                                                                                                                                   </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>YOUR CONCERNS                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>If you have any concerns about any material on our site, please contact us by email or write to                                                                                                                                                                                                                                                                                                                                                                                                                 </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </p>
+<p>contato@vicentecarvalho.site                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </p>
+
+		
+		
+		
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+	
+	
+</body>
+<script type="text/javascript">
+
+window.onload = function(){
+    var x = document.getElementById("demo")
+    x.innerHTML = Math.floor((Math.random() * 20000) + 1000);
+}
+
+
+</script>
+</html>
+
+
+
